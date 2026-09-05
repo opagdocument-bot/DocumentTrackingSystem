@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "SUBAYBAY Liaison",
+    "slug": "subaybay-liaison",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#4f46e5"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ph.gov.aurora.opag.subaybay",
+      "infoPlist": {
+        "NSCameraUsageDescription": "SUBAYBAY uses the camera to photograph the RECEIVED stamp on a document, which is how the office proves it changed hands.",
+        "NSPhotoLibraryUsageDescription": "SUBAYBAY attaches a photo of the RECEIVED stamp to the document it belongs to."
+      }
+    },
+    "android": {
+      "package": "ph.gov.aurora.opag.subaybay",
+      "adaptiveIcon": {
+        "backgroundColor": "#4f46e5",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "SUBAYBAY uses the camera to photograph the RECEIVED stamp on a document, which is how the office proves it changed hands.",
+          "photosPermission": "SUBAYBAY attaches a photo of the RECEIVED stamp to the document it belongs to."
+        }
+      ],
+      "expo-status-bar"
+    ]
+  }
+}

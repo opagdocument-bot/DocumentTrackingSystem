@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <template id="__bundler_thumbnail" data-bg-color="#4f6ef7">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <rect width="120" height="120" fill="#4f6ef7"></rect>
+      <path d="M30 60 L55 80 L92 40" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </template>
+  <link rel="stylesheet" href="_ds/organic-dde7bf0c-7e3e-456e-a87c-925e2d3822fa/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <script src="_ds/organic-dde7bf0c-7e3e-456e-a87c-925e2d3822fa/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body{margin:0}
+    /* Retint to a cool blue/white/ink palette (ref: Taskly) — same tokens, new values */
+    :root{
+      --color-bg:#f4f6fb; --color-surface:#eceff8; --color-text:#171923;
+      --color-accent:#4f6ef7; --color-accent-2:#22242a;
+      --color-divider:color-mix(in srgb, #171923 12%, transparent);
+      --color-neutral-100:#f7f8fc; --color-neutral-200:#eceef6; --color-neutral-300:#dadde9;
+      --color-neutral-400:#b9bfd4; --color-neutral-500:#9299b4; --color-neutral-600:#6b7290;
+      --color-neutral-700:#4d5370; --color-neutral-800:#30354a; --color-neutral-900:#1a1d2b;
+      --color-accent-100:#e9edff; --color-accent-200:#d3daff; --color-accent-300:#aebbff;
+      --color-accent-400:#8194fa; --color-accent-500:#5b71ec; --color-accent-600:#4457c9;
+      --color-accent-700:#33429e; --color-accent-800:#242f73; --color-accent-900:#171e4d;
+      --color-accent-2-100:#e6f8ec; --color-accent-2-200:#c8eed6; --color-accent-2-300:#9fe0b6;
+      --color-accent-2-400:#6bcb8d; --color-accent-2-500:#3fae68; --color-accent-2-600:#2c8c50;
+      --color-accent-2-700:#20693c; --color-accent-2-800:#164a29; --color-accent-2-900:#0e301b;
+      --font-heading:"Baloo 2",system-ui,sans-serif; --font-heading-weight:700;
+      --font-body:"Inter",system-ui,sans-serif;
+    }
+    @keyframes fadeSettle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes dotIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+    @keyframes lineIn{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    .om-screen{animation:fadeSettle .38s ease both}
+    .om-row{animation:fadeSettle .32s ease both}
+    .om-dot{animation:dotIn .3s ease both}
+    .om-line{animation:lineIn .3s ease-out both;transform-origin:top}
+    .om-tab:hover{color:var(--color-accent)}
+    .om-navlink{padding:6px 12px;border-radius:999px;cursor:pointer}
+    .om-navlink:hover{background:color-mix(in srgb, var(--color-text) 6%, transparent)}
+    .om-navlink-active{background:var(--color-accent-100);color:var(--color-accent-800)}
+    .om-sidelink{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;cursor:pointer;font-size:13.5px}
+    .om-sidelink:hover{background:color-mix(in srgb, var(--color-text) 6%, transparent)}
+    .om-sidelink-active{background:var(--color-accent);color:var(--color-bg)}
+    .om-bottomtab{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;flex:1;padding:6px 0}
+    ::-webkit-scrollbar{width:10px;height:10px}
+    ::-webkit-scrollbar-thumb{background:var(--color-neutral-400);border-radius:999px}
+    ::-webkit-scrollbar-track{background:transparent}
+  </style>
+</helmet>
+
+<div style="background:var(--color-bg);min-height:100vh;padding:28px;font-family:var(--font-body)">
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap">
+    <div>
+      <h1 style="font-size:26px;margin-bottom:2px">SUBAYBAY</h1>
+      <p class="text-muted" style="margin:0;font-size:13px">Document tracking — Office of the Provincial Agriculturist · web &amp; mobile</p>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <div class="seg" style="font-size:12px">
+        <sc-for list="{{ roles }}" as="r" hint-placeholder-count="4">
+          <label class="seg-opt">
+            <input type="radio" name="role" checked="{{ r.active }}" onChange="{{ r.pick }}"></input>
+            <span>{{ r.label }}</span>
+          </label>
+        </sc-for>
+      </div>
+      <div class="seg" style="font-size:12px">
+        <label class="seg-opt"><input type="radio" name="lang" checked="{{ isEn }}" onChange="{{ setEn }}"></input><span>EN</span></label>
+        <label class="seg-opt"><input type="radio" name="lang" checked="{{ isFil }}" onChange="{{ setFil }}"></input><span>FIL</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px">
+
+    <!-- ============ WEB APP FRAME ============ -->
+    <div style="flex:1;min-width:720px;max-width:1180px;background:var(--color-neutral-800);border-radius:20px;padding:10px 10px 0;box-shadow:var(--shadow-lg)">
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 8px 12px">
+        <span style="width:11px;height:11px;border-radius:50%;background:#e2725b"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#e2b25b"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#8fa073"></span>
+        <div style="margin-left:10px;background:var(--color-neutral-700);color:var(--color-neutral-200);font-size:11.5px;padding:5px 14px;border-radius:999px;flex:1;max-width:420px">subaybay.opag.gov.ph{{ urlPath }}</div>
+      </div>
+      <div style="background:var(--color-bg);border-radius:16px 16px 0 0;height:760px;overflow:hidden;display:flex;flex-direction:column">
+
+        <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ false }}">
+          <div class="om-screen" style="flex:1;display:flex;align-items:center;justify-content:center">
+            <div class="card elev-md" style="width:340px;padding:28px;text-align:center;gap:16px">
+              <div style="width:56px;height:56px;border-radius:50%;background:var(--color-accent-2-100);margin:0 auto;display:flex;align-items:center;justify-content:center">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+              </div>
+              <h2 style="font-size:22px">{{ t.loginTitle }}</h2>
+              <p class="card-body" style="text-align:left">{{ t.loginSub }}</p>
+              <div class="field" style="text-align:left"><label>{{ t.username }}</label><input class="input" value="loraine"></input></div>
+              <div class="field" style="text-align:left"><label>{{ t.password }}</label><input class="input" type="password" value="••••••••"></input></div>
+              <button class="btn btn-primary btn-block" onClick="{{ doLogin }}">{{ t.signIn }}</button>
+              <p class="text-muted" style="font-size:11px">{{ t.pickRoleHint }}</p>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isAppShell }}" hint-placeholder-val="{{ true }}">
+          <div class="nav" style="border-bottom:1px solid var(--color-divider);flex:none">
+            <span class="nav-brand" style="display:flex;align-items:center;gap:8px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="M2 17l10 5 10-5"></path></svg>
+              SUBAYBAY
+            </span>
+            <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+              <a class="om-navlink" data-active="{{ n.active }}" style="{{ n.style }}" onClick="{{ n.go }}">{{ n.label }}</a>
+            </sc-for>
+            <span class="tag tag-neutral" style="margin-left:auto">{{ userLine }}</span>
+          </div>
+
+          <div style="display:flex;flex:1;overflow:hidden">
+            <div style="width:196px;flex:none;border-right:1px solid var(--color-divider);padding:14px 10px;display:flex;flex-direction:column;gap:2px">
+              <sc-for list="{{ sideItems }}" as="s" hint-placeholder-count="5">
+                <div class="om-sidelink" data-active="{{ s.active }}" style="{{ s.style }}" onClick="{{ s.go }}">
+                  <span style="width:18px;height:18px;flex:none" dangerouslySetInnerHTML="{{ s.icon }}"></span>
+                  <span>{{ s.label }}</span>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="flex:1;overflow:auto;padding:24px 28px">
+
+              <!-- DASHBOARD -->
+              <sc-if value="{{ isDashboard }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen">
+                  <h2 style="font-size:22px;margin-bottom:2px">{{ t.dashTitle }}</h2>
+                  <p class="text-muted" style="font-size:13px;margin-bottom:18px">{{ t.dashSub }}</p>
+                  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px">
+                    <sc-for list="{{ dashStats }}" as="k" hint-placeholder-count="4">
+                      <div class="card elev-sm om-row" style="{{ k.delay }}">
+                        <span class="card-kicker">{{ k.label }}</span>
+                        <span style="font-family:var(--font-heading);font-size:30px">{{ k.value }}</span>
+                        <span class="card-meta">{{ k.note }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                  <h4 style="margin-bottom:10px">{{ t.needsAttention }}</h4>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <sc-for list="{{ dashDocs }}" as="d" hint-placeholder-count="4">
+                      <div class="card elev-sm om-row" style="{{ d.delay }};flex-direction:row;align-items:center;justify-content:space-between;cursor:pointer" onClick="{{ d.open }}">
+                        <div>
+                          <div style="font-family:var(--font-heading);font-size:14px">{{ d.control }}</div>
+                          <div class="card-body" style="margin:0">{{ d.subject }}</div>
+                        </div>
+                        <span class="tag {{ d.toneClass }}">{{ d.statusLabel }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- REGISTRY -->
+              <sc-if value="{{ isRegistry }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                    <div><h2 style="font-size:22px;margin-bottom:2px">{{ t.registryTitle }}</h2><p class="text-muted" style="font-size:13px;margin:0">{{ t.registrySub }}</p></div>
+                    <button class="btn btn-primary" onClick="{{ goIntake }}">+ {{ t.registerNew }}</button>
+                  </div>
+                  <div style="max-height:600px;overflow:auto;border-radius:16px">
+                    <table class="table">
+                      <thead><tr><th>{{ t.colControl }}</th><th>{{ t.colSubject }}</th><th>{{ t.colProgram }}</th><th>{{ t.colStatus }}</th><th>{{ t.colOffice }}</th><th>{{ t.colDays }}</th></tr></thead>
+                      <tbody>
+                        <sc-for list="{{ registryDocs }}" as="d" hint-placeholder-count="8">
+                          <tr style="cursor:pointer" onClick="{{ d.open }}">
+                            <td style="font-size:12.5px">{{ d.control }}</td>
+                            <td>{{ d.subject }}</td>
+                            <td><span class="tag tag-outline" style="{{ d.programStyle }}">{{ d.program }}</span></td>
+                            <td><span class="tag {{ d.toneClass }}">{{ d.statusLabel }}</span></td>
+                            <td class="text-muted" style="font-size:12.5px">{{ d.office }}</td>
+                            <td class="text-muted" style="font-size:12.5px">{{ d.days }}</td>
+                          </tr>
+                        </sc-for>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- DOCUMENT DETAIL -->
+              <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen">
+                  <a class="btn-ghost btn" style="padding-left:0" onClick="{{ backFromDetail }}">← {{ t.back }}</a>
+                  <div style="display:flex;gap:24px;margin-top:8px">
+                    <div style="flex:1">
+                      <span class="tag tag-outline">{{ detail.type }}</span>
+                      <h2 style="font-size:24px;margin:8px 0 2px">{{ detail.subject }}</h2>
+                      <p class="text-muted" style="font-size:13px;margin:0 0 18px">{{ detail.control }} · {{ detail.program }}</p>
+                      <h4 style="margin-bottom:14px">{{ t.trail }}</h4>
+                      <div style="position:relative;padding-left:6px">
+                        <sc-for list="{{ detail.steps }}" as="st" hint-placeholder-count="4">
+                          <div style="display:flex;gap:14px;position:relative">
+                            <div style="display:flex;flex-direction:column;align-items:center;width:20px">
+                              <span class="om-dot" style="{{ st.delay }};width:16px;height:16px;border-radius:50%;background:{{ st.dotColor }};flex:none;box-shadow:0 0 0 3px var(--color-bg)"></span>
+                              <sc-if value="{{ st.hasLine }}" hint-placeholder-val="{{ true }}"><span class="om-line" style="{{ st.delay }};width:2px;flex:1;background:var(--color-divider);min-height:36px"></span></sc-if>
+                            </div>
+                            <div style="padding-bottom:26px">
+                              <div style="font-size:14px;font-weight:600">{{ st.label }}</div>
+                              <div class="text-muted" style="font-size:12px">{{ st.office }} · {{ st.state }}</div>
+                            </div>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </div>
+                    <div style="width:280px;flex:none">
+                      <div class="card elev-sm" style="margin-bottom:14px">
+                        <span class="card-kicker">{{ t.status }}</span>
+                        <span class="tag {{ detail.toneClass }}" style="width:fit-content">{{ detail.statusLabel }}</span>
+                      </div>
+                      <div class="card elev-sm" style="gap:8px">
+                        <span class="card-kicker">{{ t.actions }}</span>
+                        <button class="btn btn-primary btn-block" style="margin-top:0" onClick="{{ detail.primaryAction }}">{{ detail.primaryLabel }}</button>
+                        <button class="btn btn-secondary btn-block" onClick="{{ detail.secondaryAction }}">{{ detail.secondaryLabel }}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- INTAKE -->
+              <sc-if value="{{ isIntake }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen" style="max-width:640px">
+                  <h2 style="font-size:22px;margin-bottom:2px">{{ t.intakeTitle }}</h2>
+                  <p class="text-muted" style="font-size:13px;margin-bottom:18px">{{ t.intakeSub }}</p>
+                  <div class="field" style="margin-bottom:12px"><label>{{ t.docType }}</label>
+                    <select class="input"><option>Travel Order</option><option>Purchase Request</option><option>Application for Leave</option></select>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                    <div class="field"><label>{{ t.travellers }}</label><input class="input" placeholder="Lorenzo"></input></div>
+                    <div class="field"><label>{{ t.dateOfTravel }}</label><input class="input" placeholder="September 3–4, 2026"></input></div>
+                  </div>
+                  <div class="field" style="margin-top:12px"><label>{{ t.destination }}</label><input class="input" placeholder="San Fernando, Pampanga"></input></div>
+                  <div class="field" style="margin-top:12px"><label>{{ t.purpose }}</label><textarea class="input" placeholder="Regional rice program mid-year review"></textarea></div>
+                  <div class="field" style="margin-top:12px"><label>{{ t.attachments }}</label>
+                    <div style="border:1.5px dashed var(--color-divider);border-radius:16px;padding:18px;text-align:center" class="text-muted">{{ t.dropFiles }}</div>
+                  </div>
+                  <button class="btn btn-primary" style="margin-top:18px" onClick="{{ goRegistry }}">{{ t.submitReview }}</button>
+                </div>
+              </sc-if>
+
+              <!-- RECEIVE & RELEASE -->
+              <sc-if value="{{ isReceiveRelease }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen">
+                  <h2 style="font-size:22px;margin-bottom:16px">{{ t.receiveReleaseTitle }}</h2>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+                    <div>
+                      <h4 style="margin-bottom:10px">{{ t.toReceive }}</h4>
+                      <sc-for list="{{ receiveList }}" as="d" hint-placeholder-count="2">
+                        <div class="card elev-sm om-row" style="{{ d.delay }};margin-bottom:8px">
+                          <span class="card-kicker">{{ d.control }}</span>
+                          <span class="card-title" style="font-size:15px">{{ d.subject }}</span>
+                          <span class="card-body" style="margin:0">{{ d.note }}</span>
+                          <button class="btn btn-secondary" style="align-self:flex-start;margin-top:4px">{{ t.recordReceipt }}</button>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div>
+                      <h4 style="margin-bottom:10px">{{ t.toRelease }}</h4>
+                      <sc-for list="{{ releaseList }}" as="d" hint-placeholder-count="2">
+                        <div class="card elev-sm om-row" style="{{ d.delay }};margin-bottom:8px">
+                          <span class="card-kicker">{{ d.control }}</span>
+                          <span class="card-title" style="font-size:15px">{{ d.subject }}</span>
+                          <span class="card-body" style="margin:0">{{ d.note }}</span>
+                          <button class="btn btn-primary" style="align-self:flex-start;margin-top:4px">{{ t.handTo }}</button>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- REVIEW QUEUE -->
+              <sc-if value="{{ isReview }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen">
+                  <h2 style="font-size:22px;margin-bottom:16px">{{ t.reviewTitle }}</h2>
+                  <sc-for list="{{ reviewDocs }}" as="d" hint-placeholder-count="2">
+                    <div class="card elev-sm om-row" style="{{ d.delay }};flex-direction:row;align-items:center;gap:18px;margin-bottom:10px">
+                      <div style="flex:1">
+                        <span class="tag tag-outline" style="margin-bottom:6px">{{ d.type }}</span>
+                        <div class="card-title">{{ d.subject }}</div>
+                        <div class="card-body" style="margin:0">{{ d.control }} · {{ d.submittedNote }}</div>
+                      </div>
+                      <button class="btn btn-secondary">{{ t.returnBtn }}</button>
+                      <button class="btn btn-primary">{{ t.verifyBtn }}</button>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+
+              <!-- LIAISON LOAD -->
+              <sc-if value="{{ isLiaisonLoad }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen">
+                  <h2 style="font-size:22px;margin-bottom:2px">{{ t.liaisonLoadTitle }}</h2>
+                  <p class="text-muted" style="font-size:13px;margin-bottom:16px">{{ t.liaisonLoadSub }}</p>
+                  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+                    <sc-for list="{{ liaisonBuckets }}" as="b" hint-placeholder-count="3">
+                      <div>
+                        <h5 style="margin-bottom:8px;color:var(--color-accent-700)">{{ b.label }} · {{ b.count }}</h5>
+                        <sc-for list="{{ b.docs }}" as="d" hint-placeholder-count="2">
+                          <div class="card elev-sm om-row" style="{{ d.delay }};margin-bottom:8px">
+                            <span class="card-kicker">{{ d.control }}</span>
+                            <span class="card-title" style="font-size:14px">{{ d.subject }}</span>
+                            <span class="tag {{ d.toneClass }}" style="width:fit-content">{{ d.statusLabel }}</span>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- PA DESK -->
+              <sc-if value="{{ isPaDesk }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen">
+                  <h2 style="font-size:22px;margin-bottom:2px">{{ t.paDeskTitle }}</h2>
+                  <p class="text-muted" style="font-size:13px;margin-bottom:16px">{{ t.paDeskSub }}</p>
+                  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px">
+                    <sc-for list="{{ paStats }}" as="k" hint-placeholder-count="3">
+                      <div class="card elev-sm om-row" style="{{ k.delay }}">
+                        <span class="card-kicker">{{ k.label }}</span>
+                        <span style="font-family:var(--font-heading);font-size:26px">{{ k.value }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                  <sc-for list="{{ paDocs }}" as="d" hint-placeholder-count="4">
+                    <div class="card elev-sm om-row" style="{{ d.delay }};flex-direction:row;align-items:center;gap:18px;margin-bottom:10px">
+                      <div style="flex:1">
+                        <span class="tag tag-outline" style="margin-bottom:6px">{{ d.type }}</span>
+                        <div class="card-title">{{ d.subject }}</div>
+                        <div class="card-body" style="margin:0">{{ d.control }} · {{ d.waitNote }}</div>
+                      </div>
+                      <button class="btn btn-secondary">{{ t.returnBtn }}</button>
+                      <button class="btn btn-primary">{{ t.signBtn }}</button>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+
+              <!-- TRACK BY CODE -->
+              <sc-if value="{{ isTrack }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen" style="max-width:560px;margin:40px auto 0;text-align:center">
+                  <h2 style="font-size:24px;margin-bottom:6px">{{ t.trackTitle }}</h2>
+                  <p class="text-muted" style="font-size:13px;margin-bottom:20px">{{ t.trackSub }}</p>
+                  <div style="display:flex;gap:8px;margin-bottom:20px">
+                    <input class="input" value="TRK-ABCD-1234"></input>
+                    <button class="btn btn-primary" style="flex:none">{{ t.trackBtn }}</button>
+                  </div>
+                  <div class="card elev-md" style="text-align:left">
+                    <span class="card-kicker">{{ track.type }}</span>
+                    <span class="card-title">{{ track.subject }}</span>
+                    <span class="tag {{ track.toneClass }}" style="width:fit-content;margin-top:4px">{{ track.phrase }}</span>
+                    <div class="hr"></div>
+                    <span class="card-body" style="margin:0">{{ t.trackNote }}</span>
+                  </div>
+                </div>
+              </sc-if>
+
+              <!-- REPORTS -->
+              <sc-if value="{{ isReports }}" hint-placeholder-val="{{ false }}">
+                <div class="om-screen">
+                  <h2 style="font-size:22px;margin-bottom:16px">{{ t.reportsTitle }}</h2>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+                    <div class="card elev-sm">
+                      <span class="card-kicker">{{ t.agingTitle }}</span>
+                      <sc-for list="{{ reportsAging }}" as="a" hint-placeholder-count="4">
+                        <div style="display:flex;align-items:center;gap:10px;margin-top:8px">
+                          <span style="width:120px;font-size:12px" class="text-muted">{{ a.office }}</span>
+                          <div style="flex:1;background:var(--color-neutral-200);border-radius:999px;height:10px;overflow:hidden">
+                            <div class="om-row" style="{{ a.delay }};height:100%;width:{{ a.pct }}%;background:var(--color-accent);border-radius:999px"></div>
+                          </div>
+                          <span style="font-size:12px;width:44px;text-align:right">{{ a.days }}d</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div class="card elev-sm">
+                      <span class="card-kicker">{{ t.bottleneckTitle }}</span>
+                      <sc-for list="{{ reportsBottleneck }}" as="b" hint-placeholder-count="4">
+                        <div style="display:flex;align-items:center;gap:10px;margin-top:8px">
+                          <span style="width:190px;font-size:12px" class="text-muted">{{ b.step }}</span>
+                          <div style="flex:1;background:var(--color-neutral-200);border-radius:999px;height:10px;overflow:hidden">
+                            <div class="om-row" style="{{ b.delay }};height:100%;width:{{ b.pct }}%;background:var(--color-accent-2-600);border-radius:999px"></div>
+                          </div>
+                          <span style="font-size:12px;width:36px;text-align:right">{{ b.avg }}d</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                  <div class="card elev-sm">
+                    <span class="card-kicker">{{ t.liaisonActivityTitle }}</span>
+                    <table class="table" style="margin-top:6px">
+                      <thead><tr><th>{{ t.colLiaison }}</th><th>{{ t.colStops }}</th><th>{{ t.colProofs }}</th></tr></thead>
+                      <tbody>
+                        <sc-for list="{{ reportsLiaison }}" as="l" hint-placeholder-count="3">
+                          <tr><td>{{ l.name }}</td><td>{{ l.stops }}</td><td>{{ l.proofs }}</td></tr>
+                        </sc-for>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </sc-if>
+
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- ============ MOBILE PHONE FRAME ============ -->
+    <x-import component-from-global-scope="AndroidDevice" from="./android-frame.jsx" title="{{ mTitle }}" style="flex:none;width:412px" hint-size="380px,780px">
+      <div style="background:var(--color-bg);height:100%;display:flex;flex-direction:column;font-family:var(--font-body)">
+
+        <sc-if value="{{ mIsSignin }}" hint-placeholder-val="{{ false }}">
+          <div class="om-screen" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:14px">
+            <div style="width:64px;height:64px;border-radius:50%;background:var(--color-accent-2-100);display:flex;align-items:center;justify-content:center">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="M2 17l10 5 10-5"></path></svg>
+            </div>
+            <h3 style="margin:0">{{ t.mSignInTitle }}</h3>
+            <p class="text-muted" style="font-size:12.5px;text-align:center;margin:0">{{ t.mSignInSub }}</p>
+            <div class="field" style="width:100%"><label>{{ t.username }}</label><input class="input" value="lcrisanto"></input></div>
+            <div class="field" style="width:100%"><label>{{ t.password }}</label><input class="input" type="password" value="••••••••"></input></div>
+            <button class="btn btn-primary btn-block" onClick="{{ mSignIn }}">{{ t.signIn }}</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ mShowChrome }}" hint-placeholder-val="{{ true }}">
+          <sc-if value="{{ mIsOffline }}" hint-placeholder-val="{{ false }}">
+            <div style="background:var(--color-accent-100);color:var(--color-accent-800);font-size:11.5px;padding:8px 14px;text-align:center;cursor:pointer" onClick="{{ mGoOffline }}">{{ t.offlineBanner }}</div>
+          </sc-if>
+
+          <div style="flex:1;overflow:auto;padding:16px">
+
+            <sc-if value="{{ mIsLoad }}" hint-placeholder-val="{{ false }}">
+              <div class="om-screen">
+                <h4 style="margin-bottom:2px">{{ t.mLoadTitle }}</h4>
+                <p class="text-muted" style="font-size:12px;margin-bottom:10px">{{ mUserLine }}</p>
+                <div class="seg" style="width:100%;margin-bottom:14px">
+                  <sc-for list="{{ mTabs }}" as="tb" hint-placeholder-count="3">
+                    <label class="seg-opt" style="flex:1;justify-content:center">
+                      <input type="radio" name="mtab" checked="{{ tb.active }}" onChange="{{ tb.pick }}"></input>
+                      <span>{{ tb.label }}</span>
+                    </label>
+                  </sc-for>
+                </div>
+                <sc-for list="{{ mDocs }}" as="d" hint-placeholder-count="3">
+                  <div class="card elev-sm om-row" style="{{ d.delay }};margin-bottom:10px;cursor:pointer" onClick="{{ d.open }}">
+                    <span class="card-kicker">{{ d.control }}</span>
+                    <span class="card-title" style="font-size:14px">{{ d.subject }}</span>
+                    <span class="tag {{ d.toneClass }}" style="width:fit-content">{{ d.statusLabel }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ mIsDetail }}" hint-placeholder-val="{{ false }}">
+              <div class="om-screen">
+                <a class="btn-ghost btn" style="padding-left:0" onClick="{{ mBack }}">← {{ t.back }}</a>
+                <span class="tag tag-outline" style="margin-top:8px">{{ mDetail.type }}</span>
+                <h4 style="margin:8px 0 2px">{{ mDetail.subject }}</h4>
+                <p class="text-muted" style="font-size:12px;margin:0 0 14px">{{ mDetail.control }}</p>
+                <sc-for list="{{ mDetail.steps }}" as="st" hint-placeholder-count="4">
+                  <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:6px">
+                    <span class="om-dot" style="{{ st.delay }};width:12px;height:12px;border-radius:50%;background:{{ st.dotColor }};margin-top:3px;flex:none"></span>
+                    <div><div style="font-size:13px">{{ st.label }}</div><div class="text-muted" style="font-size:11px">{{ st.state }}</div></div>
+                  </div>
+                </sc-for>
+                <button class="btn btn-primary btn-block" onClick="{{ mDetail.primaryAction }}">{{ mDetail.primaryLabel }}</button>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ mIsReceipt }}" hint-placeholder-val="{{ false }}">
+              <div class="om-screen">
+                <a class="btn-ghost btn" style="padding-left:0" onClick="{{ mBack }}">← {{ t.back }}</a>
+                <h4 style="margin:8px 0 12px">{{ t.mReceiptTitle }}</h4>
+                <image-slot id="proof-receipt" shape="rounded" radius="16" style="width:100%;height:180px" placeholder="{{ t.mCapturePlaceholder }}"></image-slot>
+                <div class="field" style="margin-top:14px"><label>{{ t.receivedBy }}</label><input class="input" placeholder="Juan Dela Cruz"></input></div>
+                <div class="field" style="margin-top:10px"><label>{{ t.notes }}</label><textarea class="input" placeholder="…"></textarea></div>
+                <button class="btn btn-primary btn-block" onClick="{{ mBack }}">{{ t.confirm }}</button>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ mIsSignature }}" hint-placeholder-val="{{ false }}">
+              <div class="om-screen">
+                <a class="btn-ghost btn" style="padding-left:0" onClick="{{ mBack }}">← {{ t.back }}</a>
+                <h4 style="margin:8px 0 12px">{{ t.mSignatureTitle }}</h4>
+                <image-slot id="proof-signature" shape="rounded" radius="16" style="width:100%;height:180px" placeholder="{{ t.mCapturePlaceholder }}"></image-slot>
+                <div class="field" style="margin-top:14px"><label>{{ t.signedBy }}</label><input class="input" placeholder="Arnold B. Novicio"></input></div>
+                <button class="btn btn-primary btn-block" onClick="{{ mBack }}">{{ t.confirm }}</button>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ mIsScan }}" hint-placeholder-val="{{ false }}">
+              <div class="om-screen" style="text-align:center">
+                <h4 style="margin-bottom:10px">{{ t.mScanTitle }}</h4>
+                <div style="background:var(--color-neutral-900);border-radius:16px;height:220px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+                  <div style="width:150px;height:150px;border:3px solid var(--color-accent-300);border-radius:16px"></div>
+                </div>
+                <p class="text-muted" style="font-size:12px;margin-bottom:10px">{{ t.mScanSub }}</p>
+                <input class="input" placeholder="{{ t.mEnterCode }}"></input>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ mIsNotif }}" hint-placeholder-val="{{ false }}">
+              <div class="om-screen">
+                <h4 style="margin-bottom:12px">{{ t.mNotifTitle }}</h4>
+                <sc-for list="{{ mNotifs }}" as="n" hint-placeholder-count="4">
+                  <div class="card elev-sm om-row" style="{{ n.delay }};margin-bottom:8px;flex-direction:row;align-items:center;gap:10px">
+                    <span style="width:8px;height:8px;border-radius:50%;background:{{ n.dot }};flex:none"></span>
+                    <div style="flex:1">
+                      <div style="font-size:13px">{{ n.text }}</div>
+                      <div class="text-muted" style="font-size:11px">{{ n.time }}</div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ mIsProfile }}" hint-placeholder-val="{{ false }}">
+              <div class="om-screen" style="text-align:center">
+                <div style="width:64px;height:64px;border-radius:50%;background:var(--color-accent-100);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:22px;color:var(--color-accent-700)">LC</div>
+                <h4 style="margin:0">Lyka Crisanto</h4>
+                <p class="text-muted" style="font-size:12px;margin:2px 0 18px">{{ t.liaisonOfficer }}</p>
+                <div class="card elev-sm" style="text-align:left;gap:10px">
+                  <div style="display:flex;justify-content:space-between;font-size:13px"><span>{{ t.language }}</span><span>{{ langLabel }}</span></div>
+                  <div class="hr" style="margin:0"></div>
+                  <div style="display:flex;justify-content:space-between;font-size:13px"><span>{{ t.syncStatus }}</span><span style="color:var(--color-accent-2-700)">{{ t.synced }}</span></div>
+                </div>
+                <button class="btn btn-secondary btn-block" onClick="{{ mSignOut }}">{{ t.signOut }}</button>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ mIsOfflineFull }}" hint-placeholder-val="{{ false }}">
+              <div class="om-screen">
+                <a class="btn-ghost btn" style="padding-left:0" onClick="{{ mBack }}">← {{ t.back }}</a>
+                <h4 style="margin:8px 0 12px">{{ t.mOfflineTitle }}</h4>
+                <sc-for list="{{ mQueue }}" as="q" hint-placeholder-count="2">
+                  <div class="card elev-sm om-row" style="{{ q.delay }};margin-bottom:8px;flex-direction:row;align-items:center;gap:10px">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-600)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                    <div style="flex:1"><div style="font-size:13px">{{ q.text }}</div><div class="text-muted" style="font-size:11px">{{ q.time }}</div></div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+          </div>
+
+          <div style="display:flex;border-top:1px solid var(--color-divider);padding:8px 4px;flex:none">
+            <sc-for list="{{ mBottomTabs }}" as="bt" hint-placeholder-count="4">
+              <div class="om-bottomtab" onClick="{{ bt.go }}">
+                <span style="width:20px;height:20px;color:{{ bt.color }}" dangerouslySetInnerHTML="{{ bt.icon }}"></span>
+                <span style="font-size:10px;color:{{ bt.color }}">{{ bt.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+      </div>
+    </x-import>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ICONS = {
+  dashboard: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg>',
+  registry: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13l3 3v13H4Z"></path><path d="M9 9h7M9 13h7M9 17h4"></path></svg>',
+  review: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2 2 4-4"></path><rect x="3" y="4" width="18" height="16" rx="2"></rect></svg>',
+  release: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13M11 6l5 6-5 6"></path><path d="M21 5v14"></path></svg>',
+  intake: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg>',
+  reports: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"></path></svg>',
+  padesk: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M8 9h8M8 13h5"></path></svg>',
+  liaison: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 21c0-4 3.2-6.5 7-6.5s7 2.5 7 6.5"></path></svg>',
+  track: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>',
+  load: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13l3 3v13H4Z"></path></svg>',
+  scan: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M20 8V5a1 1 0 0 0-1-1h-3M4 16v3a1 1 0 0 0 1 1h3M20 16v3a1 1 0 0 1-1 1h-3"></path></svg>',
+  bell: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 1 12 0c0 4 2 5 2 5H4s2-1 2-5Z"></path><path d="M10.5 20a1.5 1.5 0 0 0 3 0"></path></svg>',
+  user: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 21c0-4 3.2-6.5 7-6.5s7 2.5 7 6.5"></path></svg>',
+};
+
+const TONE_CLASS = { neutral:'tag-neutral', warn:'tag-accent', crit:'tag-accent', accent:'tag-accent-2', info:'tag-neutral', ok:'tag-accent-2' };
+
+const STATUS = {
+  DRAFT:        { en: 'Draft',        fil: 'Burador',            tone: 'neutral' },
+  FOR_REVIEW:   { en: 'For review',   fil: 'Sinusuri',           tone: 'warn' },
+  AT_PA:        { en: 'With the PA',  fil: 'Nasa PA',             tone: 'accent' },
+  IN_TRANSIT:   { en: 'In transit',   fil: 'Nasa Biyahe',         tone: 'info' },
+  AT_OFFICE:    { en: 'At office',    fil: 'Nasa Tanggapan',      tone: 'info' },
+  FOR_RELEASE:  { en: 'For release',  fil: 'Handa Ilabas',        tone: 'accent' },
+  RETURNED:     { en: 'Returned',     fil: 'Ibinalik',            tone: 'crit' },
+  RETURNED_EXT: { en: 'Returned to office', fil: 'Ibinalik',      tone: 'crit' },
+  COMPLETED:    { en: 'Completed',    fil: 'Tapos na',            tone: 'ok' },
+  FILED:        { en: 'Filed',        fil: 'Nakaimbak',           tone: 'ok' },
+};
+
+const STR = {
+  en: {
+    loginTitle:'Sign in', loginSub:'Encoder & Reviewer access for OPAg records.', username:'Username', password:'Password', signIn:'Sign in',
+    pickRoleHint:'Use the role switcher above to preview any role.',
+    dashTitle:'Dashboard', dashSub:'Today at a glance — Office of the Provincial Agriculturist.', needsAttention:'Needs attention',
+    registryTitle:'Documents registry', registrySub:'Every document tracked by the office.', registerNew:'Register document',
+    colControl:'Control no.', colSubject:'Subject', colProgram:'Program', colStatus:'Status', colOffice:'Office', colDays:'Days',
+    trail:'Trail', status:'Status', actions:'Actions', back:'Back',
+    intakeTitle:'Register a document', intakeSub:'Intake a new document into the trail.', docType:'Document type',
+    travellers:'Traveller(s)', dateOfTravel:'Date of travel', destination:'Destination', purpose:'Purpose',
+    attachments:'Attachments', dropFiles:'Drop files or click to attach', submitReview:'Submit for review',
+    receiveReleaseTitle:'Receive & release', toReceive:'To receive', toRelease:'To release', recordReceipt:'Record receipt', handTo:'Hand to a liaison…',
+    reviewTitle:'Review queue', returnBtn:'Return', verifyBtn:'Verify — start the trail', signBtn:'Sign',
+    liaisonLoadTitle:'Liaison load', liaisonLoadSub:'Lyka Crisanto — assigned documents by where they sit.',
+    paDeskTitle:'Provincial Agriculturist — desk', paDeskSub:'Documents waiting on your signature today.',
+    trackTitle:'Track a document', trackSub:'Enter the tracking code printed on your document.', trackBtn:'Track', trackNote:'Public status only — no internal detail is shown.',
+    reportsTitle:'Reports', agingTitle:'Aging — oldest by office', bottleneckTitle:'Where documents get stuck', liaisonActivityTitle:'Liaison activity',
+    colLiaison:'Liaison', colStops:'Stops recorded', colProofs:'Proofs filed',
+    mSignInTitle:'SUBAYBAY', mSignInSub:'Liaison sign in', mLoadTitle:'My load',
+    mReceiptTitle:'Record receipt', mSignatureTitle:'Record signature', mCapturePlaceholder:'Tap to capture photo proof',
+    receivedBy:'Received by', notes:'Notes', confirm:'Confirm', signedBy:'Signed by',
+    mScanTitle:'Scan transmittal', mScanSub:'Point the camera at the QR code.', mEnterCode:'Or enter code manually',
+    mNotifTitle:'Notifications', liaisonOfficer:'Liaison Officer', language:'Language', syncStatus:'Sync status', synced:'All synced', signOut:'Sign out',
+    mOfflineTitle:'Offline queue', offlineBanner:'Offline — 2 actions queued. Tap to view.',
+  },
+  fil: {
+    loginTitle:'Mag-sign in', loginSub:'Access ng Encoder & Reviewer para sa OPAg.', username:'Username', password:'Password', signIn:'Sign in',
+    pickRoleHint:'Gamitin ang role switcher sa itaas para tignan ang ibang role.',
+    dashTitle:'Dashboard', dashSub:'Buod ngayong araw — Office of the Provincial Agriculturist.', needsAttention:'Kailangang pansin',
+    registryTitle:'Rehistro ng dokumento', registrySub:'Lahat ng dokumentong sinusubaybayan.', registerNew:'Irehistro ang dokumento',
+    colControl:'Control no.', colSubject:'Paksa', colProgram:'Programa', colStatus:'Estado', colOffice:'Tanggapan', colDays:'Araw',
+    trail:'Daanan', status:'Estado', actions:'Aksyon', back:'Bumalik',
+    intakeTitle:'Irehistro ang dokumento', intakeSub:'Isingit ang bagong dokumento sa daanan.', docType:'Uri ng dokumento',
+    travellers:'Manlalakbay', dateOfTravel:'Petsa ng biyahe', destination:'Patutunguhan', purpose:'Layunin',
+    attachments:'Kalakip', dropFiles:'I-drop ang file o i-click', submitReview:'Isumite para sa pagsusuri',
+    receiveReleaseTitle:'Tanggapin & ilabas', toReceive:'Tatanggapin', toRelease:'Ilalabas', recordReceipt:'Itala ang pagtanggap', handTo:'Ibigay sa liaison…',
+    reviewTitle:'Pila ng pagsusuri', returnBtn:'Ibalik', verifyBtn:'I-verify — simulan ang daanan', signBtn:'Pirmahan',
+    liaisonLoadTitle:'Dala ng liaison', liaisonLoadSub:'Lyka Crisanto — mga dokumentong itinalaga.',
+    paDeskTitle:'Provincial Agriculturist — mesa', paDeskSub:'Mga dokumentong naghihintay ng pirma.',
+    trackTitle:'Subaybayan ang dokumento', trackSub:'Ilagay ang tracking code na nakalimbag sa dokumento.', trackBtn:'Subaybayan', trackNote:'Publikong estado lamang.',
+    reportsTitle:'Ulat', agingTitle:'Pinakamatagal — ayon sa tanggapan', bottleneckTitle:'Kung saan naiipit ang dokumento', liaisonActivityTitle:'Aktibidad ng liaison',
+    colLiaison:'Liaison', colStops:'Itinalang hinto', colProofs:'Naisumiteng patunay',
+    mSignInTitle:'SUBAYBAY', mSignInSub:'Sign in ng liaison', mLoadTitle:'Aking dala',
+    mReceiptTitle:'Itala ang pagtanggap', mSignatureTitle:'Itala ang pirma', mCapturePlaceholder:'Pindutin para kumuha ng larawan',
+    receivedBy:'Tinanggap ni', notes:'Tala', confirm:'Kumpirmahin', signedBy:'Pinirmahan ni',
+    mScanTitle:'I-scan ang transmittal', mScanSub:'Itutok ang camera sa QR code.', mEnterCode:'O ilagay ang code',
+    mNotifTitle:'Notipikasyon', liaisonOfficer:'Liaison Officer', language:'Wika', syncStatus:'Sync status', synced:'Naka-sync na', signOut:'Mag-sign out',
+    mOfflineTitle:'Naka-pila offline', offlineBanner:'Offline — 2 aksyon naka-pila. Pindutin para tingnan.',
+  },
+};
+
+const REGISTRY = [
+  { control:'OPA-TO-2026-08-0001', type:'TO', subject:'Attend regional rice program review', program:'RICE', color:'#4A4A2A', status:'FOR_REVIEW', office:'OPAg', days:'0' },
+  { control:'OPA-TO-2026-08-0002', type:'TO', subject:'Fingerling dispersal, Dinalungan', program:'FISH', color:'#CCE7B0', status:'AT_PA', office:'OPAg', days:'1' },
+  { control:'OPA-TO-2026-08-0003', type:'TO', subject:'Vegetable production training', program:'HVCDP', color:'#E0CDEC', status:'IN_TRANSIT', office:"Governor's Office", days:'3' },
+  { control:'OPA-TO-2026-08-0004', type:'TO', subject:'Corn seed inspection, Dipaculao', program:'CORN', color:'#F6E48A', status:'RETURNED', office:'OPAg', days:'—' },
+  { control:'OPA-PR-2026-07-0001', type:'PR', subject:'Integrated Nutrient Management Project inputs', program:'RICE', color:'#4A4A2A', status:'AT_OFFICE', office:'Budget Office', days:'8' },
+  { control:'OPA-PR-2026-08-0002', type:'PR', subject:'Preventive maintenance of service vehicles', program:'ADMIN', color:'#F2C4C4', status:'RETURNED_EXT', office:'OPAg', days:'5' },
+  { control:'OPA-LEAVE-2026-08-0001', type:'LEAVE', subject:'Vacation Leave — Ninia', program:'ADMIN', color:'#F2C4C4', status:'FOR_RELEASE', office:'HRMO', days:'4' },
+  { control:'OPA-DV-2026-08-0003', type:'DV', subject:'Payment — fuel and lubricants, July 2026', program:'ADMIN', color:'#F2C4C4', status:'AT_OFFICE', office:'Internal Audit', days:'2' },
+];
+
+const TRAIL_TO = [
+  { seq:1, label:'Counter-signed by FOD', office:'OPAg', done:true },
+  { seq:2, label:'Signed and Approved by Provincial Agriculturist', office:'OPAg', current:true },
+  { seq:3, label:'Record Releasing from OPAg', office:'OPAg' },
+  { seq:4, label:'Signed and Approved by the Governor', office:"Governor's Office" },
+];
+
+const LIAISON_DOCS = {
+  carry: [
+    { control:'OPA-TO-2026-08-0003', subject:'Vegetable production training', status:'IN_TRANSIT' },
+    { control:'OPA-PR-2026-08-0002', subject:'Preventive maintenance — service vehicles', status:'RETURNED_EXT' },
+  ],
+  field: [
+    { control:'OPA-TO-2026-08-0002', subject:'Fingerling dispersal, Dinalungan', status:'AT_PA' },
+  ],
+  office: [
+    { control:'OPA-LEAVE-2026-08-0001', subject:'Vacation Leave — Ninia', status:'FOR_RELEASE' },
+    { control:'OPA-DV-2026-08-0003', subject:'Payment — fuel & lubricants', status:'AT_OFFICE' },
+  ],
+};
+
+const PA_DOCS = [
+  { control:'OPA-TO-2026-08-0002', type:'TO', subject:'Fingerling dispersal, Dinalungan', wait:'On desk 1 day' },
+  { control:'OPA-PR-2026-08-0004', type:'PR', subject:'Assistance to PAFC activities', wait:'On desk 3 days' },
+  { control:'OPA-OBR-2026-08-0005', type:'OBR', subject:'Obligation request — INM Project inputs', wait:'On desk 4 days' },
+  { control:'OPA-COMM-2026-08-0021', type:'COMM-OUT', subject:'Reply — updated HVCDP beneficiaries', wait:'On desk 2 days' },
+];
+
+const NOTIFS = [
+  { text:'New document assigned to you — OPA-TO-2026-08-0003', time:'10 min ago', dot:'var(--color-accent)' },
+  { text:'PA signed OPA-TO-2026-08-0002 — ready for pickup', time:'1 hr ago', dot:'var(--color-accent-2-600)' },
+  { text:'Reminder: proof still needed for OPA-PR-2026-08-0002', time:'Yesterday', dot:'var(--color-accent-600)' },
+  { text:'Document received at Governor\'s Office', time:'Yesterday', dot:'var(--color-neutral-500)' },
+];
+
+class Component extends DCLogic {
+  state = {
+    role: 'encoder', lang: 'en', loggedIn: false,
+    screen: 'dashboard', detailId: 'OPA-TO-2026-08-0002',
+    mLoggedIn: false, mScreen: 'load', mTab: 'field', mDetailId: 'OPA-TO-2026-08-0002', mPrevScreen: 'load',
+  };
+
+  ROLES = [
+    { key:'encoder', label:'Encoder', home:'dashboard' },
+    { key:'pa', label:'PA', home:'pa_desk' },
+    { key:'liaison', label:'Liaison', home:'liaison_load' },
+    { key:'viewer', label:'Viewer', home:'track' },
+  ];
+
+  NAV = {
+    encoder: ['dashboard','registry','review','receive_release','reports'],
+    pa: ['pa_desk','registry','reports'],
+    liaison: ['liaison_load','registry'],
+    viewer: ['track','reports'],
+  };
+  SCREEN_META = {
+    dashboard:{label:'Dashboard', icon:'dashboard'}, registry:{label:'Registry', icon:'registry'},
+    review:{label:'Review queue', icon:'review'}, receive_release:{label:'Receive & release', icon:'release'},
+    intake:{label:'Register', icon:'intake'}, reports:{label:'Reports', icon:'reports'},
+    pa_desk:{label:'PA desk', icon:'padesk'}, liaison_load:{label:'Liaison load', icon:'liaison'},
+    track:{label:'Track', icon:'track'}, detail:{label:'Detail', icon:'registry'},
+  };
+
+  setRole(k){ this.setState({ role:k, screen: this.ROLES.find(r=>r.key===k).home }); }
+  goScreen(k){ this.setState({ screen:k }); }
+  openDetail(id){ this.setState({ detailId:id, screen:'detail' }); }
+
+  toneClassStatic(status){ return TONE_CLASS[STATUS[status].tone]; }
+  statusLabel(status, lang){ return STATUS[status][lang]; }
+
+  buildTimeline(lang){
+    return TRAIL_TO.map((s,i)=>{
+      const dotColor = s.done ? 'var(--color-accent-2-600)' : s.current ? 'var(--color-accent)' : 'var(--color-neutral-400)';
+      const state = s.done ? (lang==='en'?'Done':'Tapos') : s.current ? (lang==='en'?'In progress':'Kasalukuyan') : (lang==='en'?'Pending':'Naghihintay');
+      return { label:s.label, office:s.office, dotColor, state, hasLine: i < TRAIL_TO.length-1, delay: `animation-delay:${i*140}ms` };
+    });
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const t = STR[lang];
+    const isEn = lang === 'en', isFil = lang === 'fil';
+
+    const roles = this.ROLES.map(r => ({ label:r.label, active:this.state.role===r.key, pick:()=>this.setRole(r.key) }));
+
+    const navKeys = this.NAV[this.state.role];
+    const navItems = navKeys.filter(k=>k!=='detail').map(k => ({
+      label: this.SCREEN_META[k].label, active:this.state.screen===k,
+      style: this.state.screen===k ? 'background:var(--color-accent-100);color:var(--color-accent-800)' : '',
+      go: ()=>this.goScreen(k),
+    }));
+    const sideItems = navKeys.map(k => ({
+      label:this.SCREEN_META[k].label, icon:{__html:ICONS[this.SCREEN_META[k].icon]},
+      active:this.state.screen===k,
+      style: this.state.screen===k ? '' : '',
+      go: ()=>this.goScreen(k),
+    }));
+
+    const userNames = { encoder:'Loraine · Encoder', pa:'Arnold Novicio · PA', liaison:'Lyka Crisanto · Liaison', viewer:'Lorenzo · Viewer' };
+
+    const registryDocs = REGISTRY.map((d,i) => ({
+      ...d, statusLabel: this.statusLabel(d.status, lang), toneClass: this.toneClassStatic(d.status),
+      programStyle: `background:${d.color}22;border-color:${d.color};color:${d.color}`,
+      open: ()=>this.openDetail(d.control),
+    }));
+
+    const dashDocs = REGISTRY.slice(0,4).map((d,i)=>({ control:d.control, subject:d.subject, statusLabel:this.statusLabel(d.status,lang), toneClass:this.toneClassStatic(d.status), delay:`animation-delay:${i*90}ms`, open:()=>this.openDetail(d.control) }));
+    const dashStats = [
+      { label:'Open documents', value:'32', note:'across the office' },
+      { label:'For review', value:'4', note:'awaiting encoder' },
+      { label:'With the PA', value:'6', note:'on the desk today' },
+      { label:'Completed, Aug', value:'19', note:'so far this month' },
+    ].map((k,i)=>({ ...k, delay:`animation-delay:${i*90}ms` }));
+
+    const detailDoc = REGISTRY.find(d=>d.control===this.state.detailId) || REGISTRY[1];
+    const detail = {
+      type: detailDoc.type, subject: detailDoc.subject, control: detailDoc.control, program: detailDoc.program,
+      statusLabel: this.statusLabel(detailDoc.status, lang), toneClass: this.toneClassStatic(detailDoc.status),
+      steps: this.buildTimeline(lang),
+      primaryLabel: lang==='en' ? 'Record that PA has signed' : 'Itala na pumirma ang PA',
+      secondaryLabel: lang==='en' ? 'Return for revision' : 'Ibalik',
+      primaryAction: ()=>{}, secondaryAction: ()=>{},
+    };
+
+    const receiveList = [
+      { control:'OPA-PR-2026-08-0002', subject:'Preventive maintenance — service vehicles', note: lang==='en'?'Returned by BAC — Approved PPMP not attached.':'Ibinalik ng BAC.' },
+    ].map((d,i)=>({...d, delay:`animation-delay:${i*100}ms`}));
+    const releaseList = [
+      { control:'OPA-LEAVE-2026-08-0001', subject:'Vacation Leave — Ninia', note: lang==='en'?'Approved by HRMO — ready to release.':'Aprubado ng HRMO.' },
+      { control:'OPA-TO-2026-08-0004', subject:'Corn seed inspection', note: lang==='en'?'Signed by PA — bound for the Governor.':'Pinirmahan ng PA.' },
+    ].map((d,i)=>({...d, delay:`animation-delay:${i*100}ms`}));
+
+    const reviewDocs = [
+      { type:'TO', control:'OPA-TO-2026-08-0001', subject:'Attend regional rice program review', submittedNote: lang==='en'?'Submitted today':'Isinumite ngayon' },
+    ].map((d,i)=>({...d, delay:`animation-delay:${i*100}ms`}));
+
+    const liaisonBuckets = [
+      { label: lang==='en'?'Carry now':'Dadalhin', count: LIAISON_DOCS.carry.length, docs: LIAISON_DOCS.carry },
+      { label: lang==='en'?'Out in the field':'Nasa Field', count: LIAISON_DOCS.field.length, docs: LIAISON_DOCS.field },
+      { label: lang==='en'?'At an office desk':'Nasa Tanggapan', count: LIAISON_DOCS.office.length, docs: LIAISON_DOCS.office },
+    ].map(b => ({ ...b, docs: b.docs.map((d,i)=>({ ...d, statusLabel:this.statusLabel(d.status,lang), toneClass:this.toneClassStatic(d.status), delay:`animation-delay:${i*90}ms` })) }));
+
+    const paStats = [
+      { label:'Signed today', value:'3' }, { label:'Waiting on desk', value:'4' }, { label:'Avg. days on desk', value:'2.4' },
+    ].map((k,i)=>({...k, delay:`animation-delay:${i*90}ms`}));
+    const paDocs = PA_DOCS.map((d,i)=>({ ...d, waitNote:d.wait, delay:`animation-delay:${i*90}ms` }));
+
+    const track = { type:'TO', subject:'Vegetable production training', toneClass:this.toneClassStatic('IN_TRANSIT'),
+      phrase: lang==='en' ? "In transit to Governor's Office" : "Papunta sa Governor's Office" };
+
+    const reportsAging = [
+      { office:"Governor's Office", days:9, pct:100 }, { office:'Budget Office', days:8, pct:89 },
+      { office:"Admin's Office", days:6, pct:67 }, { office:'OPAg', days:3, pct:33 },
+    ].map((a,i)=>({...a, delay:`animation-delay:${i*90}ms`}));
+    const reportsBottleneck = [
+      { step:'For Signature of PA', avg:4.2, pct:100 }, { step:'For Earmark of Budget', avg:3.5, pct:83 },
+      { step:'Initial Sig. of Admin Office', avg:2.8, pct:67 }, { step:'Signed by Governor', avg:2.1, pct:50 },
+    ].map((b,i)=>({...b, delay:`animation-delay:${i*90}ms`}));
+    const reportsLiaison = [
+      { name:'Lyka Crisanto', stops:14, proofs:12 }, { name:'Alfredo Escobar', stops:11, proofs:11 }, { name:'Lavinia Dulay', stops:9, proofs:8 },
+    ];
+
+    // -------- mobile --------
+    const mDocsSrc = LIAISON_DOCS[this.state.mTab] || [];
+    const mDocs = mDocsSrc.map((d,i) => ({
+      ...d, statusLabel:this.statusLabel(d.status,lang), toneClass:this.toneClassStatic(d.status),
+      delay:`animation-delay:${i*90}ms`, open: ()=>this.setState({ mDetailId:d.control, mScreen:'detail' }),
+    }));
+    const mTabs = ['carry','field','office'].map(k => ({
+      label: k==='carry' ? (lang==='en'?'Carry':'Dala') : k==='field' ? (lang==='en'?'Field':'Field') : (lang==='en'?'Office':'Opisina'),
+      active: this.state.mTab===k, pick: ()=>this.setState({ mTab:k }),
+    }));
+    const mDocFull = [...LIAISON_DOCS.carry, ...LIAISON_DOCS.field, ...LIAISON_DOCS.office].find(d=>d.control===this.state.mDetailId) || LIAISON_DOCS.field[0];
+    const mDetail = {
+      type: mDocFull.control.split('-')[1], subject: mDocFull.subject, control: mDocFull.control,
+      steps: this.buildTimeline(lang).map(s=>({...s, delay:''})),
+      primaryLabel: lang==='en' ? 'Record signature' : 'Itala ang pirma',
+      primaryAction: ()=>this.setState({ mScreen:'signature' }),
+    };
+    const mNotifs = NOTIFS.map((n,i)=>({...n, delay:`animation-delay:${i*80}ms`}));
+    const mQueue = [
+      { text: lang==='en'?'Receipt proof — OPA-TO-2026-08-0003':'Patunay — OPA-TO-2026-08-0003', time:'2 min ago' },
+      { text: lang==='en'?'Signature proof — OPA-PR-2026-08-0002':'Pirma — OPA-PR-2026-08-0002', time:'14 min ago' },
+    ].map((q,i)=>({...q, delay:`animation-delay:${i*90}ms`}));
+
+    const mBottomTabs = [
+      { key:'load', label: lang==='en'?'Load':'Dala', icon:ICONS.load },
+      { key:'scan', label: lang==='en'?'Scan':'Scan', icon:ICONS.scan },
+      { key:'notif', label: lang==='en'?'Alerts':'Alerto', icon:ICONS.bell },
+      { key:'profile', label: lang==='en'?'Profile':'Profile', icon:ICONS.user },
+    ].map(bt => ({
+      label:bt.label, icon:{__html:bt.icon},
+      color: this.state.mScreen===bt.key ? 'var(--color-accent-700)' : 'var(--color-neutral-500)',
+      go: ()=>this.setState({ mScreen:bt.key }),
+    }));
+
+    const screenTitles = { load:t.mLoadTitle, detail:mDetail.subject, receipt:t.mReceiptTitle, signature:t.mSignatureTitle, scan:t.mScanTitle, notif:t.mNotifTitle, profile:'Profile', offline:t.mOfflineTitle };
+
+    return {
+      t, isEn, isFil, setEn:()=>this.setState({lang:'en'}), setFil:()=>this.setState({lang:'fil'}),
+      roles, navItems, sideItems, userLine: userNames[this.state.role],
+      mUserLine: lang==='en' ? 'Lyka Crisanto · Liaison Officer' : 'Lyka Crisanto · Liaison Officer',
+      isLogin: !this.state.loggedIn, isAppShell: this.state.loggedIn, doLogin: ()=>this.setState({ loggedIn:true }),
+      urlPath: '/' + this.state.screen,
+      isDashboard: this.state.screen==='dashboard', isRegistry: this.state.screen==='registry', isDetail: this.state.screen==='detail',
+      isIntake: this.state.screen==='intake', isReceiveRelease: this.state.screen==='receive_release', isReview: this.state.screen==='review',
+      isLiaisonLoad: this.state.screen==='liaison_load', isPaDesk: this.state.screen==='pa_desk', isTrack: this.state.screen==='track', isReports: this.state.screen==='reports',
+      dashDocs, dashStats, registryDocs, goIntake:()=>this.setState({screen:'intake'}), goRegistry:()=>this.setState({screen:'registry'}),
+      detail, backFromDetail: ()=>this.setState({ screen: this.NAV[this.state.role].includes('registry') ? 'registry' : this.ROLES.find(r=>r.key===this.state.role).home }),
+      receiveList, releaseList, reviewDocs, liaisonBuckets, paStats, paDocs, track, reportsAging, reportsBottleneck, reportsLiaison,
+
+      mIsSignin: !this.state.mLoggedIn, mSignIn: ()=>this.setState({ mLoggedIn:true }),
+      mShowChrome: this.state.mLoggedIn, mTitle: this.state.mLoggedIn ? (screenTitles[this.state.mScreen] || 'SUBAYBAY') : 'SUBAYBAY',
+      mIsOffline: this.state.mScreen==='load', mGoOffline: ()=>this.setState({ mPrevScreen:this.state.mScreen, mScreen:'offline' }),
+      mIsLoad: this.state.mScreen==='load', mIsDetail: this.state.mScreen==='detail', mIsReceipt: this.state.mScreen==='receipt',
+      mIsSignature: this.state.mScreen==='signature', mIsScan: this.state.mScreen==='scan', mIsNotif: this.state.mScreen==='notif',
+      mIsProfile: this.state.mScreen==='profile', mIsOfflineFull: this.state.mScreen==='offline',
+      mTabs, mDocs, mDetail, mBack: ()=>this.setState({ mScreen: this.state.mScreen==='offline' ? this.state.mPrevScreen : 'load' }),
+      mNotifs, mQueue, mBottomTabs, mSignOut: ()=>this.setState({ mLoggedIn:false }),
+      langLabel: isEn ? 'English' : 'Filipino',
+    };
+  }
+}
+</script>
+</body>
+</html>

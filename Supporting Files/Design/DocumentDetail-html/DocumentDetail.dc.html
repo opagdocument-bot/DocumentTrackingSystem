@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #FBFAF7; color: #1C1B18; font-family: 'Public Sans', 'Helvetica Neue', Helvetica, sans-serif; font-size: 13.5px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: #2E6A4A; text-decoration: none; }
+    a:hover { color: #1F4B34; }
+  </style>
+</helmet>
+
+<div style="display: flex; width: 1440px; height: 900px; overflow: hidden;">
+
+  <aside style="width: 220px; flex: none; background: #F5F3EE; border-right: 1px solid #E5E2DA; display: flex; flex-direction: column; padding: 20px 0 18px;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 16px 22px;">
+      <div style="width: 28px; height: 28px; flex: none; border-radius: 4px; background: #2E6A4A; display: flex; align-items: center; justify-content: center; color: #FFFFFF;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-8"></path><path d="M12 13c0-3.3-2.7-6-6-6 0 3.3 2.7 6 6 6z"></path><path d="M12 13c0-3.9 3.1-7 7-7 0 3.9-3.1 7-7 7z"></path></svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0;">
+        <span style="font-size: 12.5px; font-weight: 600;">Provincial Agriculturist</span>
+        <span style="font-size: 11px; color: #8A867C;">Document Tracking</span>
+      </div>
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 2px; padding: 0 10px;">
+      <div style="display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 11px; border-radius: 4px; color: #6B675E;">
+        <span style="display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span>
+        <span style="font-size: 13px;">Dashboard</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 10px; border-radius: 4px; background: #FFFFFF; border: 1px solid #E5E2DA; font-weight: 500; color: #1C1B18;">
+        <span style="display: flex; color: #2E6A4A;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg></span>
+        <span style="font-size: 13px;">Documents</span>
+        <span style="margin-left: auto; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #8A867C;">248</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 11px; border-radius: 4px; color: #6B675E;">
+        <span style="display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13"></path><path d="M14 5l3 3-3 3"></path><path d="M20 16H7"></path><path d="M10 13l-3 3 3 3"></path></svg></span>
+        <span style="font-size: 13px;">Receive &amp; Release</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 11px; border-radius: 4px; color: #6B675E;">
+        <span style="display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M3 20h18"></path></svg></span>
+        <span style="font-size: 13px;">Reports</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 11px; border-radius: 4px; color: #6B675E;">
+        <span style="display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"></rect><path d="M9 8h2M13 8h2M9 12h2M13 12h2"></path><path d="M10 21v-4h4v4"></path></svg></span>
+        <span style="font-size: 13px;">Offices</span>
+      </div>
+    </nav>
+
+    <div style="margin-top: auto; padding: 0 10px; display: flex; flex-direction: column; gap: 2px;">
+      <div style="display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 11px; border-radius: 4px; color: #6B675E;">
+        <span style="display: flex;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.2 5.2 7 7M17 17l1.8 1.8M18.8 5.2 17 7M7 17l-1.8 1.8"></path></svg></span>
+        <span style="font-size: 13px;">Settings</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; height: 46px; margin-top: 6px; padding: 0 10px; border-top: 1px solid #E5E2DA;">
+        <div style="width: 26px; height: 26px; flex: none; border-radius: 50%; background: #E0DDD3; display: flex; align-items: center; justify-content: center; font-size: 10.5px; font-weight: 600; color: #6B675E;">LB</div>
+        <div style="display: flex; flex-direction: column; min-width: 0;">
+          <span style="font-size: 12px; font-weight: 500;">L. Bleoveras</span>
+          <span style="font-size: 10.5px; color: #8A867C;">Records Section</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main style="flex: 1; display: flex; flex-direction: column; min-width: 0;">
+
+    <header style="height: 56px; flex: none; border-bottom: 1px solid #E5E2DA; display: flex; align-items: center; gap: 10px; padding: 0 28px;">
+      <span style="display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #E5E2DA; background: #FFFFFF; border-radius: 4px; color: #6B675E;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></span>
+      <span style="font-size: 12.5px; color: #8A867C;">Documents</span>
+      <span style="font-size: 12.5px; color: #C4C0B6;">/</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; color: #1C1B18;">OPA‑26‑0871</span>
+      <div style="margin-left: auto; display: flex; align-items: center; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 7px; height: 32px; padding: 0 12px; border: 1px solid #E5E2DA; background: #FFFFFF; border-radius: 4px; font-size: 12.5px; color: #6B675E;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"></path><rect x="4" y="9" width="16" height="7" rx="1"></rect><path d="M8 16h8v5H8z"></path></svg>
+          <span>Routing slip</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 7px; height: 32px; padding: 0 12px; border: 1px solid #E5E2DA; background: #FFFFFF; border-radius: 4px; font-size: 12.5px; color: #6B675E;">
+          <span>Return to sender</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 7px; height: 32px; padding: 0 14px; background: #2E6A4A; color: #FFFFFF; border-radius: 4px; font-size: 12.5px; font-weight: 500;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m12 6 6 6-6 6"></path></svg>
+          <span>Forward</span>
+        </div>
+      </div>
+    </header>
+
+    <div style="flex: 1; padding: 24px 28px; display: flex; flex-direction: column; gap: 18px; min-height: 0;">
+
+      <div style="display: flex; align-items: flex-start; gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; font-weight: 500; color: #6B675E; letter-spacing: 0.02em;">OPA‑26‑0871</span>
+            <span style="display: flex; align-items: center; gap: 6px; height: 22px; padding: 0 9px; border-radius: 3px; background: #FAF3E2; color: #8A6A1F; font-size: 11.5px; font-weight: 500;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #8A6A1F;"></span>In process</span>
+            <span style="font-size: 11.5px; color: #8A867C;">Day 2 of 5 · within limit</span>
+          </div>
+          <h1 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.015em;">Disbursement Voucher — August fuel &amp; lubricants</h1>
+        </div>
+        <div style="margin-left: auto; flex: none; text-align: right; display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #A8A499;">Currently with</span>
+          <span style="font-size: 14px; font-weight: 600;">Provincial Accounting Office</span>
+          <span style="font-size: 12px; color: #6B675E;">Received 9:12 AM today · for pre‑audit</span>
+        </div>
+      </div>
+
+      <div style="flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: 16px; min-height: 0;">
+
+        <!-- Left: particulars -->
+        <div style="display: flex; flex-direction: column; gap: 14px; min-height: 0;">
+
+          <section style="background: #FFFFFF; border: 1px solid #E5E2DA; border-radius: 4px;">
+            <div style="height: 46px; display: flex; align-items: center; padding: 0 18px; border-bottom: 1px solid #E5E2DA;">
+              <h2 style="margin: 0; font-size: 13px; font-weight: 600;">Particulars</h2>
+            </div>
+            <div style="padding: 16px 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px 24px;">
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #A8A499;">Document type</span><span style="font-size: 13px;">Disbursement Voucher</span></div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #A8A499;">Date filed</span><span style="font-size: 13px;">31 August 2026, 11:10 AM</span></div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #A8A499;">Origin office</span><span style="font-size: 13px;">Agricultural Engineering Division</span></div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #A8A499;">Payee</span><span style="font-size: 13px;">[SUPPLIER NAME]</span></div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #A8A499;">Amount</span><span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 13px; font-weight: 500;">₱&nbsp;148,750.00</span></div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #A8A499;">Charged to</span><span style="font-size: 13px;">MOOE — Fuel, Oil &amp; Lubricants</span></div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #A8A499;">Action due</span><span style="font-size: 13px;">5 September 2026</span></div>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #A8A499;">Linked to</span><span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #2E6A4A;">OPA‑26‑0704</span></div>
+            </div>
+          </section>
+
+          <section style="background: #FFFFFF; border: 1px solid #E5E2DA; border-radius: 4px;">
+            <div style="height: 46px; display: flex; align-items: center; gap: 10px; padding: 0 18px; border-bottom: 1px solid #E5E2DA;">
+              <h2 style="margin: 0; font-size: 13px; font-weight: 600;">Attachments</h2>
+              <span style="font-size: 11.5px; color: #8A867C;">3 files</span>
+              <span style="margin-left: auto; font-size: 12px; color: #2E6A4A; font-weight: 500;">Add file</span>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: flex; align-items: center; gap: 10px; padding: 11px 18px; border-bottom: 1px solid #F2F0EB;">
+                <span style="display: flex; color: #A8A499;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg></span>
+                <span style="font-size: 12.5px; flex: 1;">Signed DV — scanned original</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499;">PDF · 1.2 MB</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 11px 18px; border-bottom: 1px solid #F2F0EB;">
+                <span style="display: flex; color: #A8A499;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg></span>
+                <span style="font-size: 12.5px; flex: 1;">Fuel withdrawal slips — August</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499;">PDF · 3.8 MB</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 11px 18px;">
+                <span style="display: flex; color: #A8A499;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg></span>
+                <span style="font-size: 12.5px; flex: 1;">Obligation Request and Status</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499;">PDF · 640 KB</span>
+              </div>
+            </div>
+          </section>
+
+          <section style="flex: 1; background: #FFFFFF; border: 1px solid #E5E2DA; border-radius: 4px; display: flex; flex-direction: column; min-height: 0;">
+            <div style="height: 46px; flex: none; display: flex; align-items: center; padding: 0 18px; border-bottom: 1px solid #E5E2DA;">
+              <h2 style="margin: 0; font-size: 13px; font-weight: 600;">Remarks</h2>
+            </div>
+            <div style="padding: 15px 18px; display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; gap: 11px;">
+                <div style="width: 26px; height: 26px; flex: none; border-radius: 50%; background: #E0DDD3; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #6B675E;">TL</div>
+                <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+                  <span style="font-size: 12px; color: #8A867C;"><span style="color: #1C1B18; font-weight: 600;">T. Lim</span> · Admin &amp; Finance · 1 Sep, 4:28 PM</span>
+                  <span style="font-size: 12.5px;">Supporting documents complete. Endorsing to Accounting for pre‑audit.</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 11px;">
+                <div style="width: 26px; height: 26px; flex: none; border-radius: 50%; background: #E0DDD3; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #6B675E;">JB</div>
+                <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+                  <span style="font-size: 12px; color: #8A867C;"><span style="color: #1C1B18; font-weight: 600;">J. Bautista</span> · Agri. Engineering · 31 Aug, 2:50 PM</span>
+                  <span style="font-size: 12.5px;">Covers three service vehicles used for the Malusak and Sta. Cruz field runs.</span>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: auto; padding: 0 18px 15px;">
+              <div style="display: flex; align-items: center; gap: 10px; height: 36px; padding: 0 12px; border: 1px solid #E5E2DA; border-radius: 4px; background: #FCFBF8;">
+                <span style="font-size: 12.5px; color: #A8A499;">Add a remark before forwarding…</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right: routing trail -->
+        <section style="background: #FFFFFF; border: 1px solid #E5E2DA; border-radius: 4px; display: flex; flex-direction: column; overflow: hidden;">
+          <div style="height: 46px; flex: none; display: flex; align-items: center; gap: 10px; padding: 0 18px; border-bottom: 1px solid #E5E2DA;">
+            <h2 style="margin: 0; font-size: 13px; font-weight: 600;">Routing trail</h2>
+            <span style="font-size: 11.5px; color: #8A867C;">7 movements · 5 offices</span>
+          </div>
+
+          <div style="padding: 18px 18px 18px 20px; display: flex; flex-direction: column;">
+
+            <div style="display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 14px;">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="width: 11px; height: 11px; border-radius: 50%; background: #2E6A4A; box-shadow: 0 0 0 3px #E4EDE7; flex: none;"></span>
+                <span style="flex: 1; width: 1px; background: #E5E2DA; margin: 5px 0 0;"></span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px;">
+                <span style="font-size: 13px; font-weight: 600;">Received · Provincial Accounting Office</span>
+                <span style="font-size: 12px; color: #6B675E;">R. Villanueva, Administrative Aide IV</span>
+                <span style="font-size: 12px; color: #6B675E;">For pre‑audit and processing of check.</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499; padding-top: 2px;">2 Sep 2026 · 9:12 AM</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 14px;">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #B5B1A6; background: #FFFFFF; flex: none; margin-top: 1px;"></span>
+                <span style="flex: 1; width: 1px; background: #E5E2DA; margin: 5px 0 0;"></span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px;">
+                <span style="font-size: 13px; font-weight: 500;">Forwarded to Provincial Accounting Office</span>
+                <span style="font-size: 12px; color: #6B675E;">T. Lim, Administrative Officer V · Admin &amp; Finance</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499; padding-top: 2px;">1 Sep 2026 · 4:30 PM</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 14px;">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #B5B1A6; background: #FFFFFF; flex: none; margin-top: 1px;"></span>
+                <span style="flex: 1; width: 1px; background: #E5E2DA; margin: 5px 0 0;"></span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px;">
+                <span style="font-size: 13px; font-weight: 500;">Approved and signed</span>
+                <span style="font-size: 12px; color: #6B675E;">Office of the Provincial Agriculturist</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499; padding-top: 2px;">1 Sep 2026 · 2:05 PM</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 14px;">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #B5B1A6; background: #FFFFFF; flex: none; margin-top: 1px;"></span>
+                <span style="flex: 1; width: 1px; background: #E5E2DA; margin: 5px 0 0;"></span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px;">
+                <span style="font-size: 13px; font-weight: 500;">Forwarded to the Provincial Agriculturist</span>
+                <span style="font-size: 12px; color: #6B675E;">T. Lim, Administrative Officer V · Admin &amp; Finance</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499; padding-top: 2px;">1 Sep 2026 · 10:48 AM</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 14px;">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #B5B1A6; background: #FFFFFF; flex: none; margin-top: 1px;"></span>
+                <span style="flex: 1; width: 1px; background: #E5E2DA; margin: 5px 0 0;"></span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px;">
+                <span style="font-size: 13px; font-weight: 500;">Received · Admin &amp; Finance Division</span>
+                <span style="font-size: 12px; color: #6B675E;">T. Lim, Administrative Officer V</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499; padding-top: 2px;">31 Aug 2026 · 3:20 PM</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 14px;">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #B5B1A6; background: #FFFFFF; flex: none; margin-top: 1px;"></span>
+                <span style="flex: 1; width: 1px; background: #E5E2DA; margin: 5px 0 0;"></span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px;">
+                <span style="font-size: 13px; font-weight: 500;">Released by Agricultural Engineering</span>
+                <span style="font-size: 12px; color: #6B675E;">J. Bautista, Engineer II</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499; padding-top: 2px;">31 Aug 2026 · 2:55 PM</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 14px;">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #B5B1A6; background: #FFFFFF; flex: none; margin-top: 1px;"></span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <span style="font-size: 13px; font-weight: 500;">Encoded at OPA Front Desk</span>
+                <span style="font-size: 12px; color: #6B675E;">L. Bleoveras, Records Section</span>
+                <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A8A499; padding-top: 2px;">31 Aug 2026 · 11:10 AM</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="margin-top: auto; padding: 14px 18px; border-top: 1px solid #E5E2DA; display: flex; align-items: center; gap: 8px;">
+            <span style="display: flex; color: #A8A499;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+            <span style="font-size: 12px; color: #6B675E;">2 days 22 hours in transit since filing</span>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+</body>
+</html>
