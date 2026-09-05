@@ -1,0 +1,1646 @@
+{
+  "trails": [
+    {
+      "code": "TO",
+      "name": "Travel Order",
+      "category": "Travel",
+      "prerequisites": [
+        "Received Letter with Approval"
+      ],
+      "prerequisiteCodes": [],
+      "originOffice": "OPAG",
+      "refNumberOrigin": "GOV",
+      "finalProduct": "Approved Travel Order",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Counter-signed by FOD",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "fod",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 3,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "approved",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": 3,
+          "outcome": "approved",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "DTT",
+      "name": "Driver's Trip Ticket",
+      "category": "Transport",
+      "prerequisites": [
+        "Approved Travel Order"
+      ],
+      "prerequisiteCodes": [
+        "TO"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": "GOV",
+      "finalProduct": null,
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 2,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 4,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": null,
+          "outcome": "approved",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "FCS",
+      "name": "Fuel Charge Slip (Provincial)",
+      "category": "Transport",
+      "prerequisites": [
+        "Approved Travel Order"
+      ],
+      "prerequisiteCodes": [
+        "TO"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": null,
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 2,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 4,
+          "requirement": "Initial Signature of Admin Office",
+          "officeCode": "ADMINOFF",
+          "days": null,
+          "outcome": "next",
+          "signatory": "provincial_administrator",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": null,
+          "outcome": "approved",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "FCS-U",
+      "name": "Fuel Charge Slip (Outside)",
+      "category": "Transport",
+      "prerequisites": [
+        "Utilization Proposal"
+      ],
+      "prerequisiteCodes": [],
+      "originOffice": "OPAG",
+      "refNumberOrigin": "OPAG",
+      "finalProduct": "Approved Fuel Charge Slip (Outside)",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 2,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 4,
+          "requirement": "Initial Signature of Admin Office",
+          "officeCode": "ADMINOFF",
+          "days": null,
+          "outcome": "next",
+          "signatory": "provincial_administrator",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": null,
+          "outcome": "approved",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "LEAVE",
+      "name": "Application for Leave",
+      "category": "Personnel",
+      "prerequisites": [],
+      "prerequisiteCodes": [],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": "Approved Leave",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Signed by Personnel",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "personnel",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 3,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed by HRMO",
+          "officeCode": "HRMO",
+          "days": 2,
+          "outcome": "next",
+          "signatory": "hrmo",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 6,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": 2,
+          "outcome": "approved",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "PPMP",
+      "name": "Project Procurement and Management Plan",
+      "category": "Procurement",
+      "prerequisites": [
+        "Market Scoping"
+      ],
+      "prerequisiteCodes": [],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": "Approved PPMP",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 2,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 2,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 4,
+          "requirement": "Signed and Approved by Budget Officer",
+          "officeCode": "BUDGET",
+          "days": 2,
+          "outcome": "next",
+          "signatory": "budget_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "TEV",
+      "name": "Travel Expense Voucher",
+      "category": "Travel",
+      "prerequisites": [
+        "Post-travel Report",
+        "Certificate of Travel Completed",
+        "Itinerary of Travel",
+        "Obligation Request"
+      ],
+      "prerequisiteCodes": [
+        "PTR",
+        "CTC",
+        "ITR",
+        "OBR"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": null,
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Signed by Personnel",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "personnel",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "Counter-signed by Records Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "Counter-signed by Supply Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "supply_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "record_in",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 6,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "record_out",
+          "isCheckpoint": true
+        }
+      ]
+    },
+    {
+      "code": "PR",
+      "name": "Purchase Request",
+      "category": "Procurement",
+      "prerequisites": [
+        "Project Proposal",
+        "Approved PPMP"
+      ],
+      "prerequisiteCodes": [
+        "PROP",
+        "PPMP"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": "BAC",
+      "finalProduct": "Approved PR",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Counter-signed by Supply Officer",
+          "officeCode": "OPAG",
+          "days": 2,
+          "outcome": "next",
+          "signatory": "supply_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "Counter-signed by Planning Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "planning_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "record_in",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 4,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 5,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "record_out",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 6,
+          "requirement": "For Checking and Countersign Evaluation of BAC",
+          "officeCode": "BAC",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "bac",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 7,
+          "requirement": "For signature Evaluator (TWG)",
+          "officeCode": "BAC",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "twg",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 8,
+          "requirement": "Return to BAC for PR Number",
+          "officeCode": "BAC",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "bac",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 9,
+          "requirement": "For Earmark of Budget",
+          "officeCode": "BUDGET",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "budget_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 10,
+          "requirement": "Initial Signature of Admin Office",
+          "officeCode": "ADMINOFF",
+          "days": 7,
+          "outcome": "next",
+          "signatory": "provincial_administrator",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 11,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": 7,
+          "outcome": "approved",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "OBR",
+      "name": "Obligation Request (PR)",
+      "category": "Finance",
+      "prerequisites": [
+        "Approved PR",
+        "Canvass",
+        "Approved Abstract"
+      ],
+      "prerequisiteCodes": [
+        "PR"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": "BUDGET",
+      "finalProduct": "Approved OBR",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Counter-signed by Supply Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "supply_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "Counter-signed by Records Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "Counter-signed by Planning Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "planning_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "record_in",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 6,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 7,
+          "requirement": "Signed and Approved by Budget Officer",
+          "officeCode": "BUDGET",
+          "days": null,
+          "outcome": "approved",
+          "signatory": "budget_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "OBR-TEV",
+      "name": "Obligation Request (TEV)",
+      "category": "Finance",
+      "prerequisites": [
+        "Travel Expense Voucher"
+      ],
+      "prerequisiteCodes": [
+        "TEV"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": "BUDGET",
+      "finalProduct": "Approved OBR (TEV)",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Counter-signed by Supply Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "supply_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "Counter-signed by Records Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "Counter-signed by Planning Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "planning_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "record_in",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 6,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 7,
+          "requirement": "Signed and Approved by Budget Officer",
+          "officeCode": "BUDGET",
+          "days": null,
+          "outcome": "approved",
+          "signatory": "budget_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "PO",
+      "name": "Purchase Order",
+      "category": "Procurement",
+      "prerequisites": [
+        "Approved PR",
+        "Canvass",
+        "Approved Abstract",
+        "Approved Obligation Request"
+      ],
+      "prerequisiteCodes": [
+        "PR",
+        "OBR"
+      ],
+      "originOffice": "BAC",
+      "refNumberOrigin": "BAC",
+      "finalProduct": "Approved Purchase Order",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "PO Number at BAC",
+          "officeCode": "BAC",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "bac",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "Record receipt at OPAg from BAC Office",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_receipt",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 3,
+          "requirement": "Counter-signed by Planning Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "planning_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "Counter-signed by Records Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 5,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "records_officer",
+          "kind": "record_in",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 6,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 7,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 8,
+          "requirement": "Signed and Approved by Accounting Officer",
+          "officeCode": "ACCT",
+          "days": null,
+          "outcome": "next",
+          "signatory": "accounting_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 9,
+          "requirement": "Initial Signature of Admin Office",
+          "officeCode": "ADMINOFF",
+          "days": null,
+          "outcome": "next",
+          "signatory": "provincial_administrator",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 10,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": null,
+          "outcome": "approved",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "DV",
+      "name": "Disbursement Voucher",
+      "category": "Finance",
+      "prerequisites": [
+        "Approved PR",
+        "Canvass",
+        "Approved Abstract",
+        "Approved Obligation Request",
+        "Approved Purchase Order",
+        "Approved RIS / Acceptance"
+      ],
+      "prerequisiteCodes": [
+        "PR",
+        "OBR",
+        "PO"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": "GOV",
+      "finalProduct": "Approved Cheque for Supplier",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Signed and Approved by Accounting Officer",
+          "officeCode": "ACCT",
+          "days": 2,
+          "outcome": "next",
+          "signatory": "accounting_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "Signed and Approved by Treasurer",
+          "officeCode": "TREAS",
+          "days": 2,
+          "outcome": "next",
+          "signatory": "treasurer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "Checking of Internal Audit Service",
+          "officeCode": "ADMINOFF",
+          "days": 3,
+          "outcome": "next",
+          "signatory": "internal_audit",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "Cheque Approval",
+          "officeCode": "TREAS",
+          "days": null,
+          "outcome": "next",
+          "signatory": "treasurer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": null,
+          "outcome": "release",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "OBS",
+      "name": "Official Business Slip",
+      "category": "Personnel",
+      "prerequisites": [],
+      "prerequisiteCodes": [],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": null,
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Signed by Personnel",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "personnel",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "Counter-signed by Supervising Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "supervising_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 4,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "approved",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "PAY-P",
+      "name": "Payroll",
+      "variant": "Permanent",
+      "category": "Finance",
+      "prerequisites": [
+        "Daily Time Record"
+      ],
+      "prerequisiteCodes": [
+        "DTR"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": null,
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Countersigned by AO",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "admin_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 3,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by Budget Officer",
+          "officeCode": "BUDGET",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "budget_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 6,
+          "requirement": "Signed and Approved by Accounting Officer",
+          "officeCode": "ACCT",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "accounting_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 7,
+          "requirement": "Signed and Approved by Treasurer",
+          "officeCode": "TREAS",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "treasurer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 8,
+          "requirement": "Initial Signature of Admin Office",
+          "officeCode": "ADMINOFF",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_administrator",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 9,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 10,
+          "requirement": "Authority to Debit Account",
+          "officeCode": "TREAS",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "treasurer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 11,
+          "requirement": "For Bank Processing",
+          "officeCode": "BANK",
+          "days": null,
+          "outcome": "release",
+          "signatory": "bank",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "PAY-C",
+      "name": "Payroll",
+      "variant": "Casual",
+      "category": "Finance",
+      "prerequisites": [
+        "Daily Time Record"
+      ],
+      "prerequisiteCodes": [
+        "DTR"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": null,
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Countersigned by AO",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "admin_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 3,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by Budget Officer",
+          "officeCode": "BUDGET",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "budget_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 6,
+          "requirement": "Signed and Approved by Accounting Officer",
+          "officeCode": "ACCT",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "accounting_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 7,
+          "requirement": "Signed and Approved by Treasurer",
+          "officeCode": "TREAS",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "treasurer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 8,
+          "requirement": "Initial Signature of Admin Office",
+          "officeCode": "ADMINOFF",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_administrator",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 9,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 10,
+          "requirement": "Authority to Debit Account",
+          "officeCode": "TREAS",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "treasurer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 11,
+          "requirement": "For Bank Processing",
+          "officeCode": "BANK",
+          "days": null,
+          "outcome": "release",
+          "signatory": "bank",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "PAY-JO",
+      "name": "Payroll",
+      "variant": "Job Order",
+      "category": "Finance",
+      "prerequisites": [
+        "Daily Time Record"
+      ],
+      "prerequisiteCodes": [
+        "DTR"
+      ],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": null,
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Countersigned by AO",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "admin_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 3,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 5,
+          "requirement": "Signed and Approved by Budget Officer",
+          "officeCode": "BUDGET",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "budget_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 6,
+          "requirement": "Audit of Accounting",
+          "officeCode": "ACCT",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "accounting_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 7,
+          "requirement": "Signed and Approved by Treasurer",
+          "officeCode": "TREAS",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "treasurer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 8,
+          "requirement": "Initial Signature of Admin Office",
+          "officeCode": "ADMINOFF",
+          "days": 2,
+          "outcome": "next",
+          "signatory": "provincial_administrator",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 9,
+          "requirement": "Signed and Approved by Accounting Officer",
+          "officeCode": "ACCT",
+          "days": 2,
+          "outcome": "next",
+          "signatory": "accounting_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 10,
+          "requirement": "Cheque Approval",
+          "officeCode": "GOV",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 11,
+          "requirement": "Withdrawal for Release",
+          "officeCode": "TREAS",
+          "days": null,
+          "outcome": "release",
+          "signatory": "treasurer",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "PROP",
+      "name": "Project Proposal",
+      "category": "Planning",
+      "prerequisites": [],
+      "prerequisiteCodes": [],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": "Approved Project Proposal",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Signed by Personnel",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "personnel",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "Counter-signed by FOD",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "fod",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "Counter-signed by Supply Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "supply_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 4,
+          "requirement": "Counter-signed by Planning Officer",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "planning_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 5,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 6,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 7,
+          "requirement": "Record Releasing from OPAg",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_out",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 8,
+          "requirement": "Signed and Approved by Budget Officer",
+          "officeCode": "BUDGET",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "budget_officer",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 9,
+          "requirement": "Signed and Approved by the Governor",
+          "officeCode": "GOV",
+          "days": 1,
+          "outcome": "approved",
+          "signatory": "governor",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "ENDO",
+      "name": "Endorsement Letter",
+      "category": "Communications",
+      "prerequisites": [
+        "Endorsement Letter from MAO"
+      ],
+      "prerequisiteCodes": [],
+      "originOffice": "OPAG",
+      "refNumberOrigin": null,
+      "finalProduct": "Signed Endorsement Letter",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Signed by Personnel",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "next",
+          "signatory": "personnel",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 3,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": 1,
+          "outcome": "approved",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "COMM-OUT",
+      "name": "Communication Letter (Outgoing)",
+      "category": "Communications",
+      "prerequisites": [],
+      "prerequisiteCodes": [],
+      "originOffice": "OPAG",
+      "refNumberOrigin": "OPAG",
+      "finalProduct": "Signed Letter",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Signed by Personnel",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "personnel",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 2,
+          "requirement": "Counter-signed by FOD",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "fod",
+          "kind": "action",
+          "isCheckpoint": false
+        },
+        {
+          "seq": 3,
+          "requirement": "For Signature of Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "kind": "record_in",
+          "signatory": "records_officer",
+          "isCheckpoint": true
+        },
+        {
+          "seq": 4,
+          "requirement": "Signed and Approved by Provincial Agriculturist",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "release",
+          "signatory": "provincial_agriculturist",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    },
+    {
+      "code": "COMM-IN",
+      "name": "Communication Letter (Incoming)",
+      "category": "Communications",
+      "prerequisites": [],
+      "prerequisiteCodes": [],
+      "originOffice": "EXTERNAL",
+      "refNumberOrigin": null,
+      "finalProduct": "With Routing Slip",
+      "steps": [
+        {
+          "seq": 1,
+          "requirement": "Signed by Personnel",
+          "officeCode": "OPAG",
+          "days": null,
+          "outcome": "next",
+          "signatory": "personnel",
+          "kind": "action",
+          "isCheckpoint": false
+        }
+      ]
+    }
+  ],
+  "officeNames": {
+    "OPAG": "Office of the Provincial Agriculturist",
+    "GOV": "Governor's Office",
+    "BUDGET": "Provincial Budget Office",
+    "ACCT": "Provincial Accounting Office",
+    "TREAS": "Provincial Treasurer’s Office",
+    "HRMO": "Human Resource Management Office",
+    "GSO": "General Services Office",
+    "BAC": "BAC Office",
+    "ADMINOFF": "Office of the Provincial Administrator",
+    "BANK": "Land Bank / servicing bank",
+    "EXTERNAL": "External sender"
+  },
+  "officeShort": {
+    "OPAG": "OPAg",
+    "GOV": "Governor's Office",
+    "BUDGET": "Budget Office",
+    "ACCT": "Accounting Office",
+    "TREAS": "Treasurer's Office",
+    "HRMO": "HRMO",
+    "GSO": "GSO",
+    "BAC": "BAC",
+    "ADMINOFF": "Administrator's Office",
+    "BANK": "the bank",
+    "EXTERNAL": "external sender"
+  },
+  "noProgramTrailCodes": [
+    "PAY-P",
+    "PAY-C",
+    "PAY-JO",
+    "PPMP",
+    "LEAVE"
+  ],
+  "internalProgramIds": [
+    "p-admin"
+  ]
+}
