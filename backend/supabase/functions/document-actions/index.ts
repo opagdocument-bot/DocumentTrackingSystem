@@ -17,6 +17,7 @@ import { AuthError, errorResponse, identifyCaller, jsonResponse, serviceClient }
 type ActionName =
   | 'submit' | 'advance' | 'return' | 'hold' | 'resume'
   | 'receive' | 'depart' | 'cancel' | 'assignLiaison' | 'poke'
+  | 'setPrereqs' | 'removeExternalRef'
 
 interface Body {
   action: ActionName
@@ -29,6 +30,9 @@ interface Body {
   liaisonId?: string
   reason?: string
   cancelFile?: Proof
+  prereqDocIds?: string[]
+  prereqManual?: string[]
+  externalRefId?: string
 }
 
 Deno.serve(async (req) => {
@@ -85,6 +89,19 @@ async function handle(db: Db, doc: DocRow, role: string, userId: string, actor: 
     if (!can(role as never, 'assign', doc, userId)) return { error: 'Not allowed to assign a liaison' }
     if (!body.liaisonId) return { error: 'liaisonId is required', status: 400 }
     return { plan: { patch: { assigned_liaison_id: body.liaisonId }, event: { actor_name: actor.name, type: 'ASSIGNED', note: 'Assigned to a liaison', source: actor.source } } }
+  }
+
+  if (body.action === 'setPrereqs') {
+    if (!can(role as never, 'edit_prereqs', doc, userId)) return { error: 'Not allowed to edit prerequisites on this document' }
+    return { plan: { patch: { prereq_doc_ids: body.prereqDocIds ?? [], prereq_manual: body.prereqManual ?? [] } } }
+  }
+
+  if (body.action === 'removeExternalRef') {
+    if (!can(role as never, 'edit_refs', doc, userId)) return { error: 'Not allowed to edit reference numbers on this document' }
+    if (!body.externalRefId) return { error: 'externalRefId is required', status: 400 }
+    const { error } = await db.from('document_external_refs').delete().eq('id', body.externalRefId).eq('document_id', doc.id)
+    if (error) return { error: error.message, status: 500 }
+    return { plan: { patch: {} } }
   }
 
   if (body.action === 'poke') {
