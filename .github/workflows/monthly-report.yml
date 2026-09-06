@@ -1,0 +1,26 @@
+name: Monthly performance report
+
+# 00:00 UTC on the 1st of the month = 08:00 in Asia/Manila (UTC+8) — the time
+# the office asked for. GitHub Actions cron runs in UTC only, so the
+# conversion happens once, here, rather than at the receiving end.
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch: {} # lets an admin fire it by hand from the Actions tab, to test without waiting for the 1st
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call admin-reports (sendMonthlyReport)
+        run: |
+          status=$(curl -s -o /tmp/response.json -w '%{http_code}' \
+            -X POST "${{ secrets.SUPABASE_FUNCTION_URL }}/admin-reports" \
+            -H "Authorization: Bearer ${{ secrets.REPORTS_CRON_SECRET }}" \
+            -H "Content-Type: application/json" \
+            -d '{"action":"sendMonthlyReport"}')
+          cat /tmp/response.json
+          if [ "$status" -ge 300 ]; then
+            echo "admin-reports returned HTTP $status"
+            exit 1
+          fi
